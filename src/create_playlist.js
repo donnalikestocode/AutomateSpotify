@@ -38,7 +38,7 @@
   const state = generateRandomString(16);
   res.cookie(stateKey, state);
 
-  const scope = 'playlist-modify-public'
+  const scope = 'playlist-modify-public user-library-modify playlist-modify-private'
 
    const queryParams = querystring.stringify({
      client_id: CLIENT_ID,
@@ -117,37 +117,35 @@ app.get('/refresh_token', (req, res) => {
   })
 })
 
-app.get('/getSpotifyUser', (req, res) => {
-  axios.get('https://api.spotify.com/v1/me', {
-      headers: {
-        Authorization: `Bearer ${token}`
-      }
-    })
-    .then((response) => {
-      const queryParams = querystring.stringify({
-        name: 'Youtube Liked Videos',
-        description: 'All Liked Youtube Videos',
-        public: true
-      })
+app.get('/makeSpotifyPlaylist', (req, res) => {
 
-      let query = `https://api.spotify.com/v1/users/${process.env.USER_ID}/playlists?${queryParams}`
-      axios.post(query, {
-        headers: {
-        Authorization: `Bearer BQBQ1DbhtTFQYP6NXgHPwEDcDAM78P3W1AoxIDLOzRc3PmdEpzC0_s6nXzSHB5R8NEgl3bmeZD2_lUIQ9fLqdqV4Md2oCW7VrrsvEU7MWa6gcfqrDBrWJReruB7no1dnJTz4P_9kfm338VjupXy19ebdOVurwFsHCsbRazZOrxqmhJNy58pVla2EQss4ICy6MZnfaAJ3WIjXwZ-8PCNsPDuPYYIZOH7nra3khjo7-wk`,
-        'Content-Type': 'application/json'
-      }})
+  let auth = {
+    method: 'post',
+    url: `https://api.spotify.com/v1/users/${process.env.USER_ID}/playlists`,
+    data: ({
+      name: 'Youtube',
+      description: 'All',
+      public: false
+    }),
+    headers: {
+      'Content-Type': 'application/json',
+      'Authorization': `Bearer ${token}`
+  }}
 
-      console.log(response.data);
-      return;
-    })
-    .catch(error => {
-      console.log(error);
-      return;
-    })
-} )
+  axios(auth)
+  .then(response => {
+    return response
+  })
+  .catch(error => {
+    console.log(error);
+    return;
+  })
+})
+
 
  app.listen(port, () => {
    console.log(`Express app listening at http://localhost:${port}
    `)
  });
 
+//  curl -X "POST" "https://api.spotify.com/v1/users/szedonna/playlists" --data "{\"name\":\"New Playlist\",\"description\":\"New playlist description\",\"public\":false}" -H "Accept: application/json" -H "Content-Type: application/json" -H "Authorization: Bearer BQAdN5Qwx60JXRSJlicb9oXHBNXfqhWT5FAjXoUE3ECsvhdQQ3Gry7aBS6zAHKpLsNNHT4UMNBq8RkAFm3UiJ6zB10HZf-rQekY9kFX13uAlOyhCsoFiBeXjJ1j88nCpxBRt62uhlExnZO7rR_bayT-slar04XhInncdoM9lWOAM2B0O4C3nIIyiHqXs3ldW9X3KcGqvTA8XkhrGPOTETOcdOoMC6yDrIjGTtCORI-WeiBKItJ_wcSoa"
