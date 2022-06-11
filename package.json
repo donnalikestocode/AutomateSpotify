@@ -1,0 +1,30 @@
+{
+  "name": "automatespotify",
+  "version": "1.0.0",
+  "description": "",
+  "main": "create_playlist.js",
+  "scripts": {
+    "server-dev": "npx nodemon --watch server src/create_playlist.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/donnalikestocode/AutomateSpotify.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/donnalikestocode/AutomateSpotify/issues"
+  },
+  "homepage": "https://github.com/donnalikestocode/AutomateSpotify#readme",
+  "devDependencies": {
+    "eslint": "^8.17.0",
+    "webpack": "^5.73.0",
+    "webpack-cli": "^4.9.2"
+  },
+  "dependencies": {
+    "axios": "^0.27.2",
+    "dotenv": "^16.0.1",
+    "express": "^4.18.1",
+    "nodemon": "^2.0.16"
+  }
+}
