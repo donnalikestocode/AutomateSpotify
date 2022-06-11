@@ -13,6 +13,8 @@
  const querystring = require('querystring');
  const axios = require('axios');
  let token;
+ let spotify_playlist_id;
+ let song_uri;
 
 
  const CLIENT_ID = process.env.CLIENT_ID;
@@ -123,18 +125,44 @@ app.get('/makeSpotifyPlaylist', (req, res) => {
     method: 'post',
     url: `https://api.spotify.com/v1/users/${process.env.USER_ID}/playlists`,
     data: ({
-      name: 'Youtube',
-      description: 'All',
-      public: false
+      name: 'Youtube Liked',
+      description: 'All youtube liked songs :)',
+      public: true
     }),
     headers: {
       'Content-Type': 'application/json',
       'Authorization': `Bearer ${token}`
   }}
-
   axios(auth)
   .then(response => {
-    return response
+    spotify_playlist_id = response.data.id
+    console.log('response.data.id',response.data.id)
+    res.send(response.data);
+  })
+  .catch(error => {
+    console.log(error);
+    return;
+  })
+})
+
+app.get('/getSpotifyURI', (req, res) => {
+  console.log('song name', req.query.song_name)
+  console.log('artist', req.query.artist)
+  let song_name = req.query.song_name;
+  let artist = req.query.artist;
+
+  let auth = {
+    method: 'get',
+    url: `https://api.spotify.com/v1/search?q=artist%3D${artist}song%3D${song_name}&type=track`,
+    headers: {
+      'Content-Type': 'application/json',
+      'Authorization': `Bearer ${token}`
+  }}
+  axios(auth)
+  .then(response => {
+
+    console.log('uri',response.data.tracks.items[0].album.artists[0].uri)
+    res.send(response.data);
   })
   .catch(error => {
     console.log(error);
@@ -143,9 +171,15 @@ app.get('/makeSpotifyPlaylist', (req, res) => {
 })
 
 
+
+
  app.listen(port, () => {
    console.log(`Express app listening at http://localhost:${port}
    `)
  });
+
+
+
+// commands for the terminal
 
 //  curl -X "POST" "https://api.spotify.com/v1/users/szedonna/playlists" --data "{\"name\":\"New Playlist\",\"description\":\"New playlist description\",\"public\":false}" -H "Accept: application/json" -H "Content-Type: application/json" -H "Authorization: Bearer BQAdN5Qwx60JXRSJlicb9oXHBNXfqhWT5FAjXoUE3ECsvhdQQ3Gry7aBS6zAHKpLsNNHT4UMNBq8RkAFm3UiJ6zB10HZf-rQekY9kFX13uAlOyhCsoFiBeXjJ1j88nCpxBRt62uhlExnZO7rR_bayT-slar04XhInncdoM9lWOAM2B0O4C3nIIyiHqXs3ldW9X3KcGqvTA8XkhrGPOTETOcdOoMC6yDrIjGTtCORI-WeiBKItJ_wcSoa"
