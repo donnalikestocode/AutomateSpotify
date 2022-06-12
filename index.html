@@ -23,11 +23,28 @@
             }
 
             document.getElementById("submit").addEventListener('click', () => {
-                // console.log('playlist_id',playlist_id)
-                axios.get(`http://localhost:8888/YoutubePlaylistToSpotify?playlist_id=${playlist_id}`)
+                // await axios.get('/login')
+                 axios.get(`/YoutubeToSpotify?playlist_id=${playlist_id}`)
             })
          </script>
     </body>
 </html>
 
 <!-- axios.get(`/YoutubePlaylistToSpotify?playlist_id=${playlist_id}`) -->
+<!-- // // console.log('playlist_id',playlist_id)
+// // let result1 = await axios.get(`/login`)
+// // let result2 = await axios.get(`/getYoutubePlaylistSongs?playlist_id=${playlist_id}`)
+// // let result3 = await axios.get(`/makeSpotifyPlaylist`)
+// // // await axios.get(`http://localhost:8888/getSpotifyURIs`)
+// // // await axios.get(`http://localhost:8888/addSongsToPlaylist`)
+
+// let requests = [axios.get(`/login`),axios.get(`/getYoutubePlaylistSongs?playlist_id=${playlist_id}`),axios.get(`/makeSpotifyPlaylist`),axios.get(`http://localhost:8888/getSpotifyURIs`),axios.get(`http://localhost:8888/addSongsToPlaylist`)]
+
+// // Promise.all(requests)
+
+// requests.forEach(async request => {
+//     await request()
+// })
+// // .catch(error => {
+// //     res.status(500).send('failed')
+// // }) -->
