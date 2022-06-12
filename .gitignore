@@ -104,5 +104,4 @@ dist
 .tern-port
 
 #scratch work
-junkCode.js
-notes.js
+multiple_endpoints.js
