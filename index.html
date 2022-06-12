@@ -1,0 +1,33 @@
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Automate Spotify</title>
+        <meta charset="utf-8">
+    </head>
+    <body>
+        <form id="playlist_id">
+            <label id="label" for="fname">Youtube PlayList ID:</label>
+            <input id="input_box" type="text" name="fname"
+            onchange="PlaylistId()">
+            <br><br>
+            <input id="submit" type="submit" value="Add Songs to Spotify">
+        </form>
+        <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+        <script>
+            let playlist_id;
+
+            const PlaylistId = () => {
+                playlist_id = document.getElementById("input_box").value;
+                console.log(playlist_id);
+            }
+
+            document.getElementById("submit").addEventListener('click', () => {
+                // console.log('playlist_id',playlist_id)
+                axios.get(`http://localhost:8888/YoutubePlaylistToSpotify?playlist_id=${playlist_id}`)
+            })
+         </script>
+    </body>
+</html>
+
+<!-- axios.get(`/YoutubePlaylistToSpotify?playlist_id=${playlist_id}`) -->

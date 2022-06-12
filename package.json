@@ -4,7 +4,7 @@
   "description": "",
   "main": "create_playlist.js",
   "scripts": {
-    "server-dev": "npx nodemon --watch server src/create_playlist.js"
+    "server-dev": "nodemon create_playlist.js"
   },
   "repository": {
     "type": "git",
@@ -25,6 +25,7 @@
     "axios": "^0.27.2",
     "dotenv": "^16.0.1",
     "express": "^4.18.1",
+    "get-artist-title": "^1.3.1",
     "nodemon": "^2.0.16"
   }
 }
