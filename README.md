@@ -1,7 +1,7 @@
 # AutomateSpotify
 
 ## Overview
-This application has a simple frontend and powerful backend that enables users to seamlessly import their YouTube playlists to their Spotify accounts. The application streamlines the process of adding songs from YouTube to Spotify by eliminating the need for manual song-by-song addition. The main objective of this application is to enhance the organization of music across both platforms
+This application has a simple frontend and powerful backend that enables users to seamlessly import their YouTube playlists to their Spotify accounts. The application streamlines the process of adding songs from YouTube to Spotify by eliminating the need for manual song-by-song addition. The main objective of this application is to enhance the organization of music across both platforms.
 
 https://user-images.githubusercontent.com/82681370/219571779-32672c05-bf5f-43e2-968c-7a0554b4d474.mov
  
