@@ -2,6 +2,8 @@
 
 ## Overview
 This application has a simple frontend and powerful backend that enables users to seamlessly import their YouTube playlists to their Spotify accounts. The application streamlines the process of adding songs from YouTube to Spotify by eliminating the need for manual song-by-song addition. The main objective of this application is to enhance the organization of music across both platforms
+
+https://user-images.githubusercontent.com/82681370/219571779-32672c05-bf5f-43e2-968c-7a0554b4d474.mov
  
  ## Table of Contents
 - [Installation](#installation-and-setup)
@@ -20,8 +22,6 @@ This application has a simple frontend and powerful backend that enables users t
 6. YouTube playlist IDs are embedded in the URL after "list=" 
      - for example: https://www.youtube.com/watch?v=4POUDVKNXVI&list=PLfrDcxKz69SSGmNuAdL_Lfyilx_pgSb11
      - the YouTube playlist ID is: PLfrDcxKz69SSGmNuAdL_Lfyilx_pgSb11
-![Screen_Recording_2023-02-16_at_9_54_47_PM_AdobeExpress](https://user-images.githubusercontent.com/82681370/219569419-88978c51-3c19-4b53-a396-11144f702243.gif)
-
 
  ## Understanding OAuth 2.0 
  - Spotify Documentation to understanding the Authorization Code Flow - https://developer.spotify.com/documentation/general/guides/authorization/code-flow/#:~:text=Request
@@ -29,7 +29,7 @@ This application has a simple frontend and powerful backend that enables users t
 Authorization Code Flow (Summarized) 
  1. The app (developer using this application) will need to make request to the user(you) to give permission to their spotify account 
  2. The user (you) will allow your app to use your Spotify account for the app
- 3. The app will tell Spotify that they were granted permission 
+ 3. The app will tell Spotify that the app was granted permission 
  4. Spotify will double check with the user to confirm that the user has given permission to the app 
  5. Once confirmed, Spotify will provide the app with an authorization code
  6. Using the authorization code, the app can request for an access token to use Spotify's API 
