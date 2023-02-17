@@ -13,13 +13,13 @@ https://user-images.githubusercontent.com/82681370/219571779-32672c05-bf5f-43e2-
  ## Installation and Setup
  1. Fork and clone the repo and navigate to the root directory.
  2. Fill out "XXX" in the .env file with the information from .env_example 
- 3. You will need to obtain an Oauth token from the Spotify API website - see Understanding OAuth 2.0
- 4. Open http://localhost:8888/login in your browser
+ 3. Open http://localhost:8888/login in your browser
+      - You will need to obtain an Oauth token from the Spotify API website - see Understanding OAuth 2.0
       - this endpoint will allow you to retrieve your Spotify access token. 
       - No additional code needs to be added on your part, the token will be internally used to allow you to make request to Spotify's API to create playlist and etc. 
       - see Understanding OAuth 2.0 for more information on how this works
-5. Open http://localhost:8888 in your browser to start using the application 
-6. YouTube playlist IDs are embedded in the URL after "list=" 
+4. Open http://localhost:8888 in your browser to start using the application 
+5. YouTube playlist IDs are embedded in the URL after "list=" 
      - for example: https://www.youtube.com/watch?v=4POUDVKNXVI&list=PLfrDcxKz69SSGmNuAdL_Lfyilx_pgSb11
      - the YouTube playlist ID is: PLfrDcxKz69SSGmNuAdL_Lfyilx_pgSb11
 
